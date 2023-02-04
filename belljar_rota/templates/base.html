@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/general.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/links.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/tables.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/forms.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;700&family=Raleway:wght@100;400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/01344326ac.js" crossorigin="anonymous"></script>
+    <title>bell jar rota</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1><a href="/">bell jar rota</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="/staff/">view team</a></li>
+                    <li><a href="/shifts/">view rota</a></li>
+                    <li><a href="/shifts/create">create rota</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            {% block content %}
+                
+            {% endblock %}
+        </main>
+        <div class="push"></div>
+    </div>
+    <footer class="footer">
+        <nav>
+            <ul class="footer-nav">
+                <li><a href="/">home</a></li>
+                <li><a href="/shifts/">view rota</a></li>
+                <li><a href="/staff/">view staff</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

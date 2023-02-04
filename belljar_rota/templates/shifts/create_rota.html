@@ -1,0 +1,611 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form id="create_shift" action="/shifts/create/post" method="post">
+        <h3 id="form-label">create new shifts:</h3>
+        <label for="type">type:</label>
+        <select name="type" id="type">
+            <option value="open">open</option>
+            <option value="cross">cross</option>
+            <option value="close">close</option>
+            <option value="office">office</option>
+            <option value="quiz">quiz</option>
+        </select>
+        <input type="text" placeholder="times" name="times" id="times">
+        <input type="text" placeholder="hours" name="hours" id="hours">
+        <label for="day">day:</label>
+        <select name="day" id="day">
+            <option value="Mon">Monday</option>
+            <option value="Tue">Tuesday</option>
+            <option value="Wed">Wednesday</option>
+            <option value="Thu">Thursday</option>
+            <option value="Fri">Friday</option>
+            <option value="Sat">Saturday</option>
+            <option value="Sun">Sunday</option>
+        </select>
+        <label for="staff">staff member:</label>
+        <select name="staff_id" id="staff">
+            {% for staff_member in staff %}
+                <option value="{{staff_member.id}}">{{staff_member.name}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="create shift">
+    </form>
+    <table id="rota-view">
+        <tr>
+            <th><h2>type</h2></th>
+            <th><a href="/shifts/Mon">Mon</a></th>
+            <th><a href="/shifts/Tue">Tue</a></th>
+            <th><a href="/shifts/Wed">Wed</a></th>
+            <th><a href="/shifts/Thu">Thu</a></th>
+            <th><a href="/shifts/Fri">Fri</a></th>
+            <th><a href="/shifts/Sat">Sat</a></th>
+            <th><a href="/shifts/Sun">Sun</a></th>   
+        </tr>
+        <tr>
+            <td><h3>opens:</h3></td>
+            <td>
+                <ul>
+                    {% for shift in mon_shifts %}
+                        {% if shift.type == "open" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% elif shift.type == "office" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in tue_shifts %}
+                        {% if shift.type == "open" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% elif shift.type == "office" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in wed_shifts %}
+                        {% if shift.type == "open" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% elif shift.type == "office" %}
+                        <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in thu_shifts %}
+                        {% if shift.type == "open" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% elif shift.type == "office" %}
+                        <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% else %}
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in fri_shifts %}
+                        {% if shift.type == "open" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% elif shift.type == "office" %}
+                        <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% else %}
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sat_shifts %}
+                        {% if shift.type == "open" %}
+                        <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% elif shift.type == "office" %}
+                        <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sun_shifts %}
+                        {% if shift.type == "open" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% elif shift.type == "office" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% else %}
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><h3>crosses:</h3></td>
+            <td>
+                <ul>
+                    {% for shift in mon_shifts %}
+                        {% if shift.type == "cross" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in tue_shifts %}
+                        {% if shift.type == "cross" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in wed_shifts %}
+                        {% if shift.type == "cross" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in thu_shifts %}
+                        {% if shift.type == "cross" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in fri_shifts %}
+                        {% if shift.type == "cross" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sat_shifts %}
+                        {% if shift.type == "cross" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sun_shifts %}
+                        {% if shift.type == "cross" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><h3>closes:</h3></td>
+            <td>
+                <ul>
+                    {% for shift in mon_shifts %}
+                        {% if shift.type == "close" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% elif shift.type == "quiz" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in tue_shifts %}
+                        {% if shift.type == "close" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in wed_shifts %}
+                        {% if shift.type == "close" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in thu_shifts %}
+                        {% if shift.type == "close" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in fri_shifts %}
+                        {% if shift.type == "close" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sat_shifts %}
+                        {% if shift.type == "close" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sun_shifts %}
+                        {% if shift.type == "close" %}
+                            <h3>{{shift.times}}</h3>
+                            <form id="edit_staff_shift" action="/shifts/{{shift.id}}/editstaff" method="post">
+                                <select name="staff_id" id="staff">
+                                    {% for staff_member in staff %}
+                                        <option value="{{staff_member.id}}" {% if staff_member.id == shift.staff_member.id %}
+                                            selected
+                                        {% endif %}>{{staff_member.name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="submit" value="ok">
+                            </form>
+                            <li class="edit"><a href="/shifts/shift/{{ shift.id }}" class="view_edit_link">edit</a></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <!-- <tr>
+            <td><h3>notes:</h3></td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+        </tr> -->
+    </table>
+    <div class="staff_container">
+        {% for staff_member in staff %}
+            {% if staff_member.name != "None" %}
+                <ul {% if staff_hours[staff_member.id] >= staff_member.min_hours and staff_hours[staff_member.id] <= staff_member.max_hours %}
+                    id="green"
+                {% else %}
+                    id="red"
+                {% endif %}>
+                    <li>name: {{staff_member.name}}</li>
+                    <li>max-min: {{staff_member.min_hours}}—{{staff_member.max_hours}}</li>
+                    <li>current hours: {{staff_hours[staff_member.id]}}</li>
+                </ul>
+            {% endif %}   
+        {% endfor %}
+    </div>
+{% endblock %}

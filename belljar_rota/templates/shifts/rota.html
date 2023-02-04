@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+{% block content %}
+    <table id="rota-view">
+        <tr>
+            <th><h2>type</h2></th>
+            <th><a href="/shifts/Mon">Mon</a></th>
+            <th><a href="/shifts/Tue">Tue</a></th>
+            <th><a href="/shifts/Wed">Wed</a></th>
+            <th><a href="/shifts/Thu">Thu</a></th>
+            <th><a href="/shifts/Fri">Fri</a></th>
+            <th><a href="/shifts/Sat">Sat</a></th>
+            <th><a href="/shifts/Sun">Sun</a></th>   
+        </tr>
+        <tr>
+            <td><h3>opens:</h3></td>
+            <td>
+                <ul>
+                    {% for shift in mon_shifts %}
+                        {% if shift.type == "open" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% elif shift.type == "office" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}} ({{shift.type}})</h3></li>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in tue_shifts %}
+                        {% if shift.type == "open" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% elif shift.type == "office" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}} ({{shift.type}})</h3></li>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in wed_shifts %}
+                        {% if shift.type == "open" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% elif shift.type == "office" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}} ({{shift.type}})</h3></li>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in thu_shifts %}
+                        {% if shift.type == "open" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% elif shift.type == "office" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}} ({{shift.type}})</h3></li>
+                        {% else %}
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in fri_shifts %}
+                        {% if shift.type == "open" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% elif shift.type == "office" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}} ({{shift.type}})</h3></li>
+                        {% else %}
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sat_shifts %}
+                        {% if shift.type == "open" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% elif shift.type == "office" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}} ({{shift.type}})</h3></li>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sun_shifts %}
+                        {% if shift.type == "open" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% elif shift.type == "office" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}} ({{shift.type}})</h3></li>
+                        {% else %}
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><h3>crosses:</h3></td>
+            <td>
+                <ul>
+                    {% for shift in mon_shifts %}
+                        {% if shift.type == "cross" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in tue_shifts %}
+                        {% if shift.type == "cross" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in wed_shifts %}
+                        {% if shift.type == "cross" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in thu_shifts %}
+                        {% if shift.type == "cross" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in fri_shifts %}
+                        {% if shift.type == "cross" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sat_shifts %}
+                        {% if shift.type == "cross" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sun_shifts %}
+                        {% if shift.type == "cross" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><h3>closes:</h3></td>
+            <td>
+                <ul>
+                    {% for shift in mon_shifts %}
+                        {% if shift.type == "close" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% elif shift.type == "quiz" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}} ({{shift.type}})</h3></li>
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in tue_shifts %}
+                        {% if shift.type == "close" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in wed_shifts %}
+                        {% if shift.type == "close" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in thu_shifts %}
+                        {% if shift.type == "close" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in fri_shifts %}
+                        {% if shift.type == "close" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sat_shifts %}
+                        {% if shift.type == "close" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    {% for shift in sun_shifts %}
+                        {% if shift.type == "close" %}
+                            <li><h3>{{shift.staff_member.name}}:<br>{{shift.times}}</h3></li>
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <!-- <tr>
+            <td><h3>notes:</h3></td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+            <td>note</td>
+        </tr> -->
+    </table>
+{% endblock %}}

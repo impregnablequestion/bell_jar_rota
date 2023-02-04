@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>
+        current staff
+    </h2>
+    <ul id="staff-list">
+        {% for staff_member in staff %}
+            {% if staff_member.name != "None"%}
+                <li><a href="/staff/{{staff_member.id}}">{{staff_member.name}}</a></li>
+            {% endif %} 
+        {% endfor %}
+    </ul>
+    <form id="new_member" action="/staff/create" method="get">
+        <input type="submit" value="add new member">
+    </form>
+
+{% endblock %}

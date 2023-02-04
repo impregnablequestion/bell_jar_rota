@@ -1,0 +1,108 @@
+body {
+    height: 100%;
+    margin: 0;
+    background-color:darkslategrey;
+    color: white;
+    text-align: center;
+    font-family: "Courier New", monospace;
+    /* font-family: "Raleway"; */
+}
+
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+
+.push {
+    height: 50px;
+}
+
+.footer {
+    height: 50px;
+    background-color: rgb(27, 47, 47);
+}
+
+header {
+    background-color: rgb(27, 47, 47);
+    padding: 1rem
+}
+
+article {
+    text-align: left;
+    padding: 2rem;
+    margin: 2rem;
+    font-size: 24px;
+}
+
+/* aside {
+    float: right;
+    text-align: left;
+    padding: 1rem;
+    border: 10px;
+    box-shadow: inset 2px 2px 0px 2px black;
+    margin: 3rem
+} */
+
+h1 {
+    padding: 0.5rem;
+    font-weight: bolder;
+    font-size: 3.2rem
+}
+
+li {
+    list-style: none
+}
+
+p {
+    padding: 0.5rem;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+#staff-list {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem;
+}
+
+#staff-list > li {
+    font-size: larger;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.footer-nav > li > a {
+    font-size: smaller;
+}
+
+.staff_container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.staff_container > ul {
+    padding: 1rem;
+    margin: 0.5rem;
+    border: 10px white;
+    font-weight: bold;
+}
+
+#green {
+    background-color: green;
+}
+
+#red {
+    background: red;
+}
+
+    
+

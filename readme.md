@@ -1,4 +1,4 @@
-## Rota planning app for use in the Bell Jar
+# Rota planning app for use in the Bell Jar
 
 ![Screenshot of landing page of the Bell Jar](https://memimemimemi.neocities.org/imagehosting/Screenshot%202022-12-07%20at%2012.04.34.png)
 
@@ -21,7 +21,7 @@ Build an app that lets you write rotas for employee shifts in the Bell Jar (a pu
 * Create a template for the rota that indicates whether more or less staff are needed on specific days, and whether certain gshifts need to be covered or not.
 * Create a function that allows you to recall previous week's rotas as a starting point for writing the next week's one
 
-## RUNNING INSTRUCTIONS:
+### RUNNING INSTRUCTIONS:
 
 * Clone the github repository
 * Install flask, psycopg3, PostgreSQL, and python3
@@ -31,3 +31,7 @@ Build an app that lets you write rotas for employee shifts in the Bell Jar (a pu
 * Now enter the command "flask run"
 * Navigate to your browser of choice (The create rota features work quickest in Safari but have also been tested in Chrome) and enter in the url "http://127.0.0.1:4999"
 * Congratulations! In only 7 simple steps with only 4 different installations, you are now writing the rota for the Bell Jar
+
+### Note:
+
+The project has been rebased into a new repo as it was originally within a folder called projects. To see commit history or other information, please see https://github.com/impregnablequestion/projects/tree/main/project_1
